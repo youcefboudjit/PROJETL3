@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Monitor Empty Sections</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+   <input type="checkbox" id="menu-toggle">
+    <div class="sidebar">
+        <div class="side-header">
+            <h3><span>secretaire</span></h3>
+        </div>
+        
+        <div class="side-content">
+            <div class="profile">
+                <div class="profile-img bg-img" style="background-image: url('C:/Users/TECHMATE DZ/Downloads/mohammed.jpg')"></div>
+                <h4>mohammed bouchemot</h4>
+                <small>secretaire</small>
+            </div>
+
+            <div class="side-menu">
+                <ul>
+                    <li>
+                       <a href="secretaire.html">
+                            <span class="las la-home"></span>
+                            <small>home</small>
+                        </a>
+                    </li>
+                    <li>
+                       <a href="time.html">
+                            <span class="las la-calendar"></span> 
+                            <small>emploi du temps</small>
+                        </a>
+                    </li>
+                    <li>
+                       <a href="paid_students.html">
+                            <span class="las la-money-bill"></span>
+                            <small>Paid Students</small>
+                        </a>
+                    </li>
+                    <li>
+                       <a href="register_students.html">
+                            <span class="las la-user-plus"></span>
+                            <small>Register Student</small>
+                        </a>
+                    </li>
+                    <li>
+                       <a href="monitor_sections.html" class="active">
+                            <span class="las la-eye"></span>
+                            <small>sections</small>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+                
+                <div class="header-menu">
+                    <label for="">
+                        <span class="las la-search"></span>
+                    </label>
+                    
+                    <div class="notify-icon">
+                        <span class="las la-envelope"></span>
+                        <span class="notify">4</span>
+                    </div>
+                    
+                    <div class="notify-icon">
+                        <span class="las la-bell"></span>
+                        <span class="notify">3</span>
+                    </div>
+                    
+                    <div class="user">
+                        <div class="bg-img" style="background-image: url(img/1.jpeg)"></div>
+                        
+                        <span class="las la-power-off"></span>
+                        <span>Logout</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        
+        <main>
+            
+            <div class="page-header">
+                <h1>Monitor Empty Sections</h1>
+                <small>Overview of section occupancy</small>
+            </div>
+            
+            <div class="page-content">
+                <div class="charts">
+                    <div class="chart-container">
+                        <h3>Section Occupancy</h3>
+                        <canvas id="occupancyChart"></canvas>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Capacity</th>
+                            <th>Occupied</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Section A</td>
+                            <td>30</td>
+                            <td>25</td>
+                            <td>Occupied</td>
+                        </tr>
+                        <tr>
+                            <td>Section B</td>
+                            <td>30</td>
+                            <td>0</td>
+                            <td>Empty</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </main>
+        
+    </div>
+    <script>
+        const ctx = document.getElementById('occupancyChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Occupied', 'Empty'],
+                datasets: [{
+                    data: [25, 5],
+                    backgroundColor: ['#7380ec', '#ff7782']
+                }]
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
